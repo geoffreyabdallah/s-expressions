@@ -1,0 +1,28 @@
+{
+  "name": "s-expressions",
+  "version": "1.0.0",
+  "description": "s-expressions for js",
+  "main": "lib/s-expressions.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "compile": "babel -d lib/ s-expressions.es6",
+    "prepublish": "npm run compile",
+    "test": "mocha test",
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabdallah222/s-expressions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabdallah222/s-expressions/issues"
+  },
+  "homepage": "https://github.com/gabdallah222/s-expressions",
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3"
+  }
+}
