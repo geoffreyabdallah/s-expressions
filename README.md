@@ -26,7 +26,7 @@ s(map, x => x * 2, s(seq, [1, 2, 3]))
 
 # What is an s-expression?
 
-An s-expression is an unbalanced binary tree of data that is the backbone for Lisp programs. S-expressions represent any list of data, and Lisp programs specifically look at the first element of each one of these expressions as the operator - with every subsequent element recursively evaluated as operands (prefix notation). For example both of the following are valid s-expressions, with the later only being a valid Lisp program:
+An s-expression is an unbalanced binary tree of data that is the backbone for Lisp programs. S-expressions represent any list of data, and Lisp programs specifically look at the first element of each one of these expressions as the operator - with every subsequent element recursively evaluated as operands (prefix notation). For example both of the following are valid s-expressions, with the latter only being a valid Lisp program:
 
 ```clojure
 (1 2 3)
