@@ -61,7 +61,9 @@ or:
 
 s-expressions and lisp programs can take s-expressions as elements as well:
 
+```clojure
 (+ 1 2 (+ 3 4)) // Evaluates to 10
+```
 
 or:
 
