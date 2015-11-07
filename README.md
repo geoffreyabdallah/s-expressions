@@ -7,7 +7,7 @@ This library is meant to be a thought experiment in creating s-expressions and c
 Clojure:
 
 ```clojure
-(map #(* % 2) (list 1 2 3)) //returns (2 4 6)
+(map #(* % 2) (list 1 2 3)) ;; returns (2 4 6)
 ```
 
 s-expressions.js:
