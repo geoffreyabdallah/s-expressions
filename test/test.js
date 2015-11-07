@@ -18,7 +18,7 @@ describe('rest', function () {
 
   it('should give the tail of a list', function () {
     var list = (0, _sExpressions.linkList)(2, 3, 4, 5);
-    var newList = (0, _sExpressions.cons)((0, _sExpressions.node)(1), list);
+    var newList = (0, _sExpressions.cons)((0, _sExpressions.Node)(1), list);
     expect((0, _sExpressions.rest)(newList)).to.equal(list);
   });
 });
@@ -49,7 +49,7 @@ describe('cons', function () {
 
   it('should take a node and prepend it to a list', function () {
     var list = (0, _sExpressions.linkList)(2, 3, 4, 5);
-    var newList = (0, _sExpressions.cons)((0, _sExpressions.node)(1), list);
+    var newList = (0, _sExpressions.cons)((0, _sExpressions.Node)(1), list);
     var head = (0, _sExpressions.first)(newList);
     var tail = (0, _sExpressions.rest)(newList);
     expect(head).to.equal(1);

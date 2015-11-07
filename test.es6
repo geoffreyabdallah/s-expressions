@@ -1,7 +1,7 @@
 'use strict';
 
 import {
-  node,
+  Node,
   first,
   rest,
   linkList,
@@ -27,7 +27,7 @@ describe('rest', function(){
 
   it('should give the tail of a list', function(){
     let list = linkList(2, 3, 4, 5);
-    let newList = cons(node(1), list);
+    let newList = cons(Node(1), list);
     expect(rest(newList)).to.equal(list);
   });
 
@@ -49,7 +49,7 @@ describe('cons', function(){
 
   it('should take a node and prepend it to a list', function(){
     let list = linkList(2,3,4,5);
-    let newList = cons(node(1), list);
+    let newList = cons(Node(1), list);
     let head = first(newList);
     let tail = rest(newList);
     expect(head).to.equal(1);

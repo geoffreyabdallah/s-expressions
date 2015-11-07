@@ -1,6 +1,6 @@
 'use strict';
 //create node for element of linked list
-export let node = value => ({ value, next: undefined});
+export let Node = value => ({ value, next: undefined});
 
 //appends list onto a node - making node new head of list
 export let cons = (node, list) => {
@@ -16,12 +16,12 @@ export let rest = list => list.next;
 
 //create a linked list out of an arbitrary amount of arguments
 export let linkList = (head, ...tail) => {
-  let first = node(head);
+  let first = Node(head);
   return cons(first, (tail.length ? linkList.apply(null, tail) : undefined));
 };
 
 //not a proper curry - but good enough for what we need for the s expression eval
-let curry = (fn, ...args) => {
+let curry = fn => {
   return arg => {
     if (fn.length > 1) return curry(fn.bind(fn, arg));
     return fn(arg);
@@ -58,7 +58,7 @@ export let s = (...list) => {
 export let map = (fn, list) => {
   let head = s(first, list);
   let tail = s(rest, list);
-  return s(cons, s(node, s(fn, head)), (tail ? s(map, fn, tail) : undefined));
+  return s(cons, s(Node, s(fn, head)), (tail ? s(map, fn, tail) : undefined));
 };
 
 //filter function for linked list
@@ -66,7 +66,7 @@ export let filter = (fn, list) => {
   if (list) {
     let head = s(first, list);
     let tail = s(rest, list);
-    if (s(fn, head)) return s(cons, s(node, head), s(filter, fn, tail));
+    if (s(fn, head)) return s(cons, s(Node, head), s(filter, fn, tail));
     if (tail) return s(filter, fn, tail);
   }
 };
