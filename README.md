@@ -1,6 +1,10 @@
 # s-expressions
 s-(ish)-expressions in JavaScript
 
+```
+npm install s-expressions
+```
+
 # Purpose
 This library is meant to be a thought experiment in creating s-expressions and common higher order functions found in Clojure and other lisp dialects. The impetus of this library was creating something cool in JavaScript in 100 lines or less. This library enables the user to write JavaScript with prefix notation similar to Clojure:
 
