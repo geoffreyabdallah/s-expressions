@@ -225,7 +225,7 @@ s(reduce, (accum, curr) => accum + curr, 6, list); //returns 21
 
 ## seq
 
-Takes a an array or object and converts it to a list (if object is passed in, coverst to a list of [k, v] pairs);
+Takes a an array or object and converts it to a list (if object is passed in, converts to a list of [k, v] pairs);
 
 ```js
 s(seq, [1, 2, 3]) //without s() invocation - seq([1,2,3]);
