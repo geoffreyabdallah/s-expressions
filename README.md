@@ -187,6 +187,7 @@ s(map, x => x * 2, s(seq, [1, 2, 3])); //without s() invocation - map(x => x * 2
 
   or: { value: 2, next: { value: 4, next: { value : 6, next: undefined } } }
 **/
+```
 
 ## filter
 
