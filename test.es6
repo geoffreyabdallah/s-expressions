@@ -152,7 +152,6 @@ describe('into', function(){
       Object.keys(obj).length === Object.keys(testObj).length
     );
     expect(result).to.equal(true);
-    expect(result).to.equal(true);
   });
 
 });
