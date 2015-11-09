@@ -71,7 +71,7 @@ describe('s', function () {
       return x === 4 || x === 10;
     }, (0, _sExpressions.s)(_sExpressions.map, function (x) {
       return x * 2;
-    }, (0, _sExpressions.linkList)(1, 2, 3, 4, 5))))).to.equal(14);
+    }, (0, _sExpressions.linkList)(1, 2, 3, 4, 5))), 0)).to.equal(14);
   });
 });
 
@@ -209,7 +209,6 @@ describe('into', function () {
     var result = Object.keys(obj).every(function (key) {
       return testObj[key] === obj[key];
     }) && Object.keys(obj).length === Object.keys(testObj).length;
-    expect(result).to.equal(true);
     expect(result).to.equal(true);
   });
 });

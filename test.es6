@@ -69,7 +69,7 @@ describe('s', function(){
         x => (x === 4 || x === 10),
         s(map, x => x * 2, linkList(1, 2, 3, 4, 5))
       )
-    )).to.equal(14);
+    , 0)).to.equal(14);
   });
 
 });

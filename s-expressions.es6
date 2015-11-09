@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 //create node for element of linked list
 export let Node = value => ({ value, next: undefined});
 
@@ -72,11 +72,12 @@ export let filter = (fn, list) => {
 };
 
 //reduce function for linked list
-export let reduce = (fn, accum, list) => {
+export let reduce = (fn, accum, list, index) => {
+  let i = index || 0;
   let head = s(first, list);
   let tail = s(rest, list);
-  let next = accum ? s(fn, accum, head) : head;
-  return (tail ? s(reduce, fn, next, tail) : next);
+  let next = (i === 0 && accum === undefined) ? head : s(fn, accum, head);
+  return (tail ? s(reduce, fn, next, tail, (i + 1)) : next);
 };
 
 //creates a linked list out of an array or obj so they can be passed into the higher order functions above 
@@ -85,7 +86,7 @@ export let seq = arrayOrObj => {
   if (arrayOrObj && typeof arrayOrObj === 'object') return s(seq, s(reduce, (listOfTuples, key) => {
     listOfTuples.push([key, arrayOrObj[key]]);
     return listOfTuples;
-  }, [], s(seq, s(Object.keys, arrayOrObj))));
+  }, [], s(seq, s(Object.keys, arrayOrObj)), 0));
   throw new TypeError("Invalid data structure provided, must pass array or object into seq");
 };
 
@@ -94,12 +95,12 @@ export let into = (arrayOrObj, list) => {
   if (s(Array.isArray, arrayOrObj)) return s(reduce, (arrayOrObj, value) => {
     arrayOrObj.push(value);
     return arrayOrObj;
-  }, [] ,list);
+  }, [], list, 0);
   if (arrayOrObj && typeof arrayOrObj === 'object') return s(reduce, (arrayOrObj, tuple) => {
     let [key, value] = tuple;
     arrayOrObj[key] = value;
     return arrayOrObj;
-  }, {}, list);
+  }, {}, list, 0);
   throw new TypeError("Invalid data structure provided, must pass array or object as first argument of into");
 };
 
