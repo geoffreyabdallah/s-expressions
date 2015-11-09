@@ -1,6 +1,6 @@
 {
   "name": "s-expressions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "s-expressions for js",
   "main": "lib/s-expressions.js",
   "directories": {
