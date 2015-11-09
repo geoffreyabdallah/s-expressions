@@ -165,6 +165,8 @@ s((x,y,z) => x+y+z, 1 2, 12)
 
 ``` 
 
+If using s() - must supply all arguments (even optionals as undefined, ie - s(reduce, fn, undefined, list, 0) - fix coming soon for this.
+
 # Higher Order Functions API
 
 The following higher order functions were created using the general api and s() wherever possible. For example the src of map:
@@ -211,14 +213,14 @@ s(filter, x => x % 2, list) //without s() invocation - filter(x => x % 2, list);
 
 ## reduce
 
-Takes a reducer function, an optional initial accumulator value and a list. Returns the final accumulator value. If no initial accumulator is supplied, defaults to the first value in the list. The function takes the accumulator and current element in the position of the list as its parameters.
+Takes a reducer function, an optional initial accumulator value, a list and an initialized index (only if using s() form for reduce invocation - fix inbound to account for optional arguments with s()). Returns the final accumulator value. If no initial accumulator is supplied, defaults to the first value in the list. The function takes the accumulator and current element in the position of the list as its parameters.
 
 ```js
 let list = linkList(1, 2, 3, 4, 5);
-s(reduce, (accum, curr) => accum + curr, undefined, list;) //returns 15
+s(reduce, (accum, curr) => accum + curr, undefined, list, 0) //returns 15
 //without s() invocation - reduce((accum, curr) => accum + curr, undefined, list);
 
-s(reduce, (accum, curr) => accum + curr, 6, list); //returns 21
+s(reduce, (accum, curr) => accum + curr, 6, list, 0); //returns 21
 //without s() invocation - reduce((accum, curr) => accum + curr, 6, list);
 
 ```
