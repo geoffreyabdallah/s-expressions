@@ -20,13 +20,13 @@ export let linkList = (head, ...tail) => {
   return cons(first, (tail.length ? linkList.apply(null, tail) : undefined));
 };
 
-//not a proper curry - but good enough for what we need for the s expression eval
-let curry = fn => {
-  return arg => {
-    if (fn.length > 1) return curry(fn.bind(fn, arg));
-    return fn(arg);
-  };
-};
+const curry = (fn, ...xs) => {
+  return function(...ys) {
+    const allArgs = xs.concat(ys);
+    if (allArgs.length >= fn.length) return fn.apply(null, allArgs);
+    return curry.apply(null, [fn].concat(allArgs));
+  }
+}
 
 /****
   evaluate each element of the s-expression recursively
